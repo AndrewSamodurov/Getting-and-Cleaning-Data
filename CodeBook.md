@@ -1,5 +1,5 @@
 # CodeBook
-describes the variables, the data, and any transformations or work that you performed to clean up the data.
+###describes the variables, the data, and any transformations or work that you performed to clean up the data.
 
 ## The data source
 Data
@@ -14,8 +14,8 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
 ## The data
-The dataset includes the following files:
-=========================================
+###The dataset includes the following files:
+
 - 'README.txt'
 
 - 'features_info.txt': Shows information about the variables used on the feature vector.
@@ -44,24 +44,27 @@ The following files are available for the train and test data. Their description
 
 
 ## Running and variables details
-Require ```reshape2``` and ```data.table``` libraries.
 
-Load the features and activity labels.
-variables: activity_labels, features - dataframes from second colomn of such named files
-            mean_stdev - subset of features which have substrings like `*mean`* or `*std`*
+### Require ```reshape2``` and ```data.table``` libraries.
 
-Load both test and train data
-variables: X_test, y_test, subject_test - dataframes from files in test directory.
-    subsetting X_test with mean_stdev
-    adding colomns for labels in y_test
-    giving names for colomns from previous dataframes
-    binding dataframes in test
-    
-    similary steps with data in train directory to make a dataframe train
+### Load the features and activity labels.
+variables:
+- activity_labels, features - dataframes from second colomn of such named files
+- mean_stdev - subset of features which have substrings like `*mean`* or `*std`*
 
-Merge data set.
-variables: data - dataframe, making by rbind function on test and train
-            data_labels - names of colomns without first three
-            melt_data - melting data dataframe by data_labels
-            tidy_data - applying mean function of each variable for each activity and each subject
-            writing tidy_data in text file by write.table function
+### Load both test and train data
+variables:
+- X_test, y_test, subject_test - dataframes from files in test directory.
+- subsetting X_test with mean_stdev
+- adding colomns for labels in y_test
+- giving names for colomns from previous dataframes
+- binding dataframes in test
+- similary steps with data in train directory to make a dataframe train
+
+### Merge data set.
+variables:
+- data - dataframe, making by rbind function on test and train
+- data_labels - names of colomns without first three
+- melt_data - melting data dataframe by data_labels
+- tidy_data - applying mean function of each variable for each activity and each subject
+- writing tidy_data in text file by write.table function
